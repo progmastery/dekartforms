@@ -99,7 +99,7 @@ class Dekartforms {
 			$fields_table = $table_prefix . 'dekart_fields';		
 			$fields = $wpdb->get_results( 'SELECT * FROM ' . $fields_table . ' WHERE form_id=' .$data['form']. ' ORDER BY ord ASC', OBJECT );		
 		
-			$str = "<h3>{$form->title}</h3><form method='post' action='' class='dekartFormFront' id='dekartFormFront_{$data[form]}'> ";
+			$str = "<h3>{$form->title}</h3><form method='post' action='' class='dekartFormFront' id='dekartFormFront_{$data["form"]}'> ";
 			foreach($fields as $single_field) {
 				$str .= "<p><label>{$single_field->label}<input type='text' name='dekart_fields[$single_field->id]'></label></p>";
 			}
@@ -280,7 +280,7 @@ class Dekartforms {
 			));	
 			
 			foreach($_POST['data'] as  $key=>$value) {
-				$fields[] = "({$wpdb->insert_id}, '{$value[label]}', 'text',{$key})";
+				$fields[] = "({$wpdb->insert_id}, '{$value["label"]}', 'text',{$key})";
 			}
 			
 

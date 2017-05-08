@@ -237,7 +237,8 @@ class Dekartforms_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/dekartforms-admin.js', array( 'jquery' ), $this->version, false );
-		
+		wp_localize_script($this->plugin_name, 'dekartforms_admin_url', admin_url());
+
 		wp_enqueue_script("jquery-effects-core-ui",'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'),$this->version, false);	
 
 	}

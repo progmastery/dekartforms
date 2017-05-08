@@ -28,7 +28,7 @@
 			
 			$.ajax({
 				method: "POST",
-				url: "/wp-admin/admin.php?page=dekartforms&task=edit_form_name",
+				url: dekartforms_admin_url+"admin.php?page=dekartforms&task=edit_form_name",
 				data: {
 					form_id: form_id,
 					form_name: form_name
@@ -53,7 +53,7 @@
 			editStatus(true);
 			$.ajax({
 				method: "POST",
-				url: "/wp-admin/admin.php?page=dekartforms&task=insert_field",
+				url: dekartforms_admin_url+"admin.php?page=dekartforms&task=insert_field",
 				data: {
 					data : { 
 						field: fieldType,
@@ -91,7 +91,7 @@
 			var elem = $(this).closest('.dekartInputDraggable').attr('data-id');
 			$.ajax({
 				method: "POST",
-				url: "/wp-admin/admin.php?page=dekartforms&task=delete_field",
+				url: dekartforms_admin_url+"admin.php?page=dekartforms&task=delete_field",
 				data : {
 					id: elem,
 				},
@@ -112,7 +112,7 @@
 		
 		$.ajax({
 			method: "POST",
-			url: "/wp-admin/admin.php?page=dekartforms&task=edit_field_label",
+			url: dekartforms_admin_url+"admin.php?page=dekartforms&task=edit_field_label",
 			data : {
 				id: elem,
 				label: $(this).val()
@@ -139,7 +139,7 @@
 		
 		$.ajax({
 		  method: "POST",
-		  url: "/wp-admin/admin.php?page=dekartforms&task=insert_form",
+		  url: dekartforms_admin_url+"admin.php?page=dekartforms&task=insert_form",
 		  data: {
 				form_title: $('.dekartFormTitle input').val(),
 				dekartFormCreate: 1,
@@ -148,7 +148,7 @@
 		  dataType: "json"
 		}).done(function( data ) {
 			  if(data.status == "success") {
-				window.location.href = "/wp-admin/admin.php?page=dekartforms&task=return";
+				window.location.href = dekartforms_admin_url+"admin.php?page=dekartforms&task=return";
 			  }
 		});
 		
@@ -171,7 +171,7 @@
 
 		$.ajax({
 			method: "POST",
-			url: "/wp-admin/admin.php?page=dekartforms&task=reorder_fields",
+			url: dekartforms_admin_url+"admin.php?page=dekartforms&task=reorder_fields",
 			data: {
 				data : newOrder,
 			},
